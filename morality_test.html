@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Morality Tester</title>
+</head>
+<body>
+      <h1>MORALITY TESTER!</h1>
+      
+      <div id="QuestionSet1">
+            <form>
+                  <p><strong>Is the action consious or unconsious:</strong></p>
+                  <input type="radio" id="Con" name="Q1" value=1><label for="Con">Consious</label><br>
+                  <input type="radio" id="Uncon" name="Q1" value=0><label for="Uncon">Unconsious</label><br>
+            </form>
+            <button id="i1" onclick="alert('When you do the action, do you think about it and knowingly do it (i.e. kicking a ball) or does it just happen (i.e. breathing)')">i</button><br>
+            <button id="btn1" onclick="question1()">Submit</button>
+      </div>
+      
+      <div id="QuestionSet2">
+            <form>
+                  <p><strong>Does the action knowingly effect the well being of others:</strong></p>
+                  <input type="radio" id="Yes" name="Q2" value=1><label for="Yes">Yes</label><br>
+                  <input type="radio" id="No" name="Q2" value=0><label for="No">No</label><br>
+            </form>
+            <button id="i2" onclick="alert('Does the action make another persons life either better or worse on a small scale (i.e. hitting someone, giving someone a gift) or a large scale (i.e. legeslation discriminting against a group of people, giving a poor country money). Or it may just effect yourself (i.e. taking a nap). If you are not sure, that you be unknowingly, in which case select no.')">i</button><br>
+            <button id="btn1" onclick="question2()">Submit</button>
+      </div>
+      
+      <div id="QuestionSet3">
+            <form>
+                  <p><strong>Is this effect positive or negitive:</strong></p>
+                  <input type="radio" id="Pos" name="Q3" value=1><label for="Pos">Positive</label><br>
+                  <input type="radio" id="Neg" name="Q3" value=0><label for="Neg">Negitive</label><br>
+            </form>
+            <button id="i3" onclick="alert('Would you say the thing helps more people than it hurts (positive)  (i.e. gives lots of people important recources, even if it means taking some recources from a select few people) or does it hurt more people than it helps (negitive) (i.e. taking recources from many people, and giving it to a few people).')">i</button><br>
+            <button id="btn1" onclick="question3()">Submit</button>
+      </div>
+      
+      <p id="output"></p>
+      <script>
+            
+            //questions
+            
+            document.getElementById('QuestionSet2').hidden = true;
+            document.getElementById('QuestionSet3').hidden = true;
+            const output = document.getElementById('output');
+            
+            function question1() {
+                  const selectedAnswer = document.querySelector('input[name="Q1"]:checked');
+                  const selectedAnswerValue = selectedAnswer.value;
+                  
+                  if (selectedAnswerValue == 1) {
+                        document.getElementById('QuestionSet2').hidden = false;
+                        output.innerHTML = "";
+                  }
+                  else if (selectedAnswerValue == 0) {
+                        console.log(selectedAnswerValue);
+                        output.innerHTML = "The action is amoral";
+                  }
+            }
+            
+            function question2() {
+                  const selectedAnswer2 = document.querySelector('input[name="Q2"]:checked');
+                  const selectedAnswer2Value = selectedAnswer2.value;
+                  
+                  if (selectedAnswer2Value == 1) {
+                        document.getElementById('QuestionSet3').hidden = false;
+                        output.innerHTML = "";
+                  }
+                  else if (selectedAnswer2Value == 0) {
+                        output.innerHTML = "the action is amoral";
+                  }
+            }
+            
+            function question3() {
+                  const selectedAnswer3 = document.querySelector('input[name="Q3"]:checked');
+                  const selectedAnswer3Value = selectedAnswer3.value;
+                  
+                  if (selectedAnswer3Value == 1) {
+                        output.innerHTML = "The action is moral";
+                  }
+                  else if (selectedAnswer3Value == 0) {
+                        output.innerHTML = "The answer is immoral";
+                  }
+            }
+      </script>
+</body>
+</html>
